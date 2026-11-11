@@ -46,6 +46,20 @@
         "Elle produit un verdict fondé sur des preuves et liste les non-testés.",
         "Elle propose des tests permanents et attend l'accord avant modification."
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "On te donne seulement le nom d'un module (« gabarits ») et l'adresse d'un écran. Cartographie TOUTES les features de ce module et toutes leurs manières d'être utilisées, puis dis ce que tu n'as pas pu couvrir.",
+      "expected_output": "Un balayage explicite de sources indépendantes (routes HTTP, CLI, écrans, routes de la SPA, tables, tâches de fond, drapeaux, noms de tests) avec leurs chiffres, les ÉCARTS de jointure (routes sans appelant, écrans sans appel, tables sans écrivain), une fiche par capacité avec entrées/acteurs/états/effets/échecs/preuve, une matrice des usages entrée x acteur x état x chemin, et l'aveu chiffré de ce qui reste non couvert.",
+      "files": [],
+      "assertions": [
+        "La réponse nomme au moins QUATRE sources indépendantes et donne un chiffre pour chacune.",
+        "Elle produit une jointure et au moins un ÉCART mesuré (route sans appelant, écran sans appel, table sans écrivain ou drapeau sans lecteur).",
+        "Elle rend une fiche par capacité avec les six rubriques : entrées, acteurs, états, effets, échecs, preuve.",
+        "Elle produit une matrice d'usages entrée x acteur x état x chemin, et non une liste plate de tests.",
+        "Elle trouve au moins DEUX chemins d'usage qu'une lecture par nom de feature ne donne pas (CLI, tâche de fond, refus de droit, reprise après coupure).",
+        "Elle chiffre ce qui n'a pas été couvert, au lieu de laisser croire à une couverture complète."
+      ]
     }
   ]
 }

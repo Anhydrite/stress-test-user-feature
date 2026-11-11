@@ -47,14 +47,40 @@ Do not skip phase 2. A long test list built on weak proof criteria produces a co
 
 ## Phase 1 — Map the feature
 
-Read the code, not just the feature name. Locate the implementation before designing tests:
+> **Lis d'abord `references/decouverte-features.md`.** « Lire le code de la feature » trouve ce que
+> son nom désigne, et rien de plus : mesuré sur AnhyWhere le 2026-11-11, le nom seul laisse
+> invisibles **49 des 119 routes** (celles qui n'ont aucun appelant dans l'interface), 17 écrans
+> d'administration et toutes les tâches de fond. La découverte est un **balayage de huit sources
+> jointes**, pas une lecture.
 
-- routes, controllers, handlers, components, commands, endpoints
-- migrations, schemas, models, indexes
-- feature flags, config, environment variables
-- queues, workers, cron jobs, webhooks
-- external services and credentials
-- existing tests and fixtures
+### 1a. Balayage obligatoire — huit sources, jamais une seule
+
+Exécute les huit extractions de `references/decouverte-features.md` (routes HTTP, CLI, écrans,
+routes de la SPA, tables, tâches de fond, drapeaux de configuration, noms de tests). Chaque source
+rate ce que les autres voient ; **c'est la jointure qui est le livrable**, pas les listes.
+
+Puis calcule les **écarts** (routes sans appelant, écrans sans appel, tables sans écrivain,
+drapeaux sans lecteur) : un écart est soit une feature manquée, soit du code mort — les deux
+comptent, et le second se vérifie avant d'être cru.
+
+### 1b. Une fiche par CAPACITÉ, jamais par fichier
+
+Une feature est un état que l'utilisateur veut obtenir. Une fiche par capacité, identifiée `F01`,
+avec entrées, acteurs, états, effets, échecs et preuve (gabarit dans la référence).
+
+### 1c. Matrice des usages — le produit cartésien, puis l'élagage
+
+Pour chaque fiche : **entrée × acteur × état × chemin**. Ce produit est trop grand exprès : il sert
+à trouver les cases, pas à les tester toutes. Mesure du gain : la feature « gabarit » passe de 3
+usages visibles à **17** une fois la matrice remplie (import URL, import par morceaux, reprise,
+refus de type, quota, renommage, suppression, auto-publication, conversion, métadonnées,
+ressources, et cinq refus de droit).
+
+### 1d. Le benchmark de la découverte
+
+Avant de conclure, mesure le rendement de chaque source sur CE dépôt (entrées trouvées, et
+**uniques** que les autres ne voient pas). Une source sans uniques peut être abrégée la fois
+suivante ; une source qui porte beaucoup d'uniques est obligatoire.
 
 Then fill this map:
 
