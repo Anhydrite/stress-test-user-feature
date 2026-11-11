@@ -1,0 +1,51 @@
+{
+  "skill_name": "stress-test-user-feature",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "La feature de création de VM vient d'être mergée. Vérifie qu'elle marche vraiment.",
+      "expected_output": "Une cartographie des points d'entrée (création, démarrage, arrêt, suppression, snapshot), des critères de preuve qui vont au-delà de l'affichage UI (SSH/console, commande réelle, reboot, persistance, suppression et libération des ressources), une matrice avec cas négatifs et nettoyage, un protocole avec environnement jetable et teardown, un verdict fondé sur des preuves, la liste des non-testés, puis une proposition de tests permanents et correctifs en attente d'accord.",
+      "files": [],
+      "assertions": [
+        "La réponse refuse explicitement de conclure sur le seul affichage de la VM dans l'UI.",
+        "Elle inclut au moins une preuve d'usage réel : SSH/console, exécution d'une commande, ou accès au système.",
+        "Elle inclut un redémarrage et une vérification de persistance.",
+        "Elle inclut la suppression et la vérification de la libération des ressources (disque, IP, snapshot, quota).",
+        "Elle contient une matrice de tests avec au moins un cas d'erreur ou de limite.",
+        "Elle contient un protocole avec setup, capture de preuves et teardown.",
+        "Elle donne un verdict parmi PROUVÉ/PARTIEL/CASSE/BLOQUÉ et liste ce qui n'a pas été testé.",
+        "Elle propose des tests permanents et des correctifs, puis attend l'accord avant de modifier le code."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Stress-test le nouvel endpoint d'export CSV.",
+      "expected_output": "Une vérification du contrat de l'endpoint, un téléchargement réel du fichier puis un parsing, une comparaison avec un jeu de données connu, des cas vide/volumineux/unicode/erreurs, un contrôle d'idempotence, un verdict fondé sur des preuves, la liste des non-testés, puis une proposition de tests permanents en attente d'accord.",
+      "files": [],
+      "assertions": [
+        "La réponse vérifie le contrat de l'endpoint (méthode, paramètres, en-têtes, type de contenu).",
+        "Elle télécharge réellement le fichier et le parse au lieu de se contenter d'un 200.",
+        "Elle compare le contenu à un jeu de données connu (lignes, colonnes, totaux, encodage).",
+        "Elle couvre les cas vide, volumineux, unicode et les erreurs d'autorisation ou de paramètres.",
+        "Elle vérifie l'idempotence ou la stabilité de l'export.",
+        "Elle produit un verdict fondé sur des preuves et liste les non-testés.",
+        "Elle propose des tests permanents et attend l'accord avant modification."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Le flow d'inscription est terminé, teste-le.",
+      "expected_output": "Une couverture du parcours complet (formulaire, création du compte, email de vérification, clic, connexion), une vérification de l'état en base et de la session, des cas doublons/emails invalides/mots de passe faibles/rôles, un test réel de la vérification email, un nettoyage des comptes créés, un verdict fondé sur des preuves, la liste des non-testés, puis une proposition de tests permanents en attente d'accord.",
+      "files": [],
+      "assertions": [
+        "La réponse couvre le parcours complet : formulaire, création du compte, email de vérification, clic, connexion.",
+        "Elle vérifie l'état en base et la session, pas seulement le message de succès.",
+        "Elle teste les doublons, les emails invalides, les mots de passe faibles et les rôles.",
+        "Elle teste la vérification email réelle (réception ou service de test) et le lien.",
+        "Elle inclut le nettoyage des comptes créés.",
+        "Elle produit un verdict fondé sur des preuves et liste les non-testés.",
+        "Elle propose des tests permanents et attend l'accord avant modification."
+      ]
+    }
+  ]
+}
