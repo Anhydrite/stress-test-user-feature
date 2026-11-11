@@ -48,8 +48,8 @@ Do not skip phase 2. A long test list built on weak proof criteria produces a co
 ## Phase 1 — Map the feature
 
 > **Lis d'abord `references/decouverte-features.md`.** « Lire le code de la feature » trouve ce que
-> son nom désigne, et rien de plus : mesuré sur AnhyWhere le 2026-11-11, la meilleure source seule
-> couvre **71,8 %** des 531 entrées nommables et le nom seul laisse invisibles la moitié de la
+> son nom désigne, et rien de plus : mesuré sur AnhyWhere le 2026-11-11, l'ancien balayage de huit
+> extractions couvre **71,8 %** des 531 entrées nommables et le nom seul laisse invisibles la moitié de la
 > surface (routes hors `/api/`, console, tâches de fond, codes d'erreur, acteurs). La découverte
 > est un **balayage de onze sources jointes**, pas une lecture.
 

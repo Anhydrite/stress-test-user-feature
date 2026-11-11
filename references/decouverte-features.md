@@ -5,8 +5,8 @@ de la feature désigne, et rien de plus. **Mesuré sur AnhyWhere le 2026-11-11**
 le balayage qui suit nomme **531 entrées** du produit — **150 routes HTTP**, **56 routes de la
 SPA**, **54 écrans**, **23 commandes CLI**, **27 drapeaux CLI**, **38 tables**, **10 tâches de
 fond**, **136 drapeaux d'environnement**, **17 codes d'erreur**, **18 variantes de message** et
-**2 gardes d'autorisation**. La meilleure source seule en rate **150** (71,8 % de couverture), et
-la source « nom de la feature » rate la moitié de la surface.
+**2 gardes d'autorisation**. L'ancien balayage de huit extractions couvre **381/531 (71,8 %)** : **150 entrées**
+restent invisibles, et la source « nom de la feature » en rate la moitié.
 
 ## Règle 0 — Une source unique MENT
 
