@@ -48,16 +48,20 @@ Do not skip phase 2. A long test list built on weak proof criteria produces a co
 ## Phase 1 — Map the feature
 
 > **Lis d'abord `references/decouverte-features.md`.** « Lire le code de la feature » trouve ce que
-> son nom désigne, et rien de plus : mesuré sur AnhyWhere le 2026-11-11, le nom seul laisse
-> invisibles **49 des 119 routes** (celles qui n'ont aucun appelant dans l'interface), 17 écrans
-> d'administration et toutes les tâches de fond. La découverte est un **balayage de huit sources
-> jointes**, pas une lecture.
+> son nom désigne, et rien de plus : mesuré sur AnhyWhere le 2026-11-11, la meilleure source seule
+> couvre **71,8 %** des 531 entrées nommables et le nom seul laisse invisibles la moitié de la
+> surface (routes hors `/api/`, console, tâches de fond, codes d'erreur, acteurs). La découverte
+> est un **balayage de onze sources jointes**, pas une lecture.
 
-### 1a. Balayage obligatoire — huit sources, jamais une seule
+### 1a. Balayage obligatoire — onze extractions, jamais une seule
 
-Exécute les huit extractions de `references/decouverte-features.md` (routes HTTP, CLI, écrans,
-routes de la SPA, tables, tâches de fond, drapeaux de configuration, noms de tests). Chaque source
-rate ce que les autres voient ; **c'est la jointure qui est le livrable**, pas les listes.
+Exécute les onze extractions de `references/decouverte-features.md` : routes HTTP **par
+enregistrement** (y compris hors `/api/`), routes de la SPA **imbrication résolue**, écrans,
+commandes CLI (`Use:`) et drapeaux, tables, tâches de fond (`Start*`), drapeaux d'environnement,
+codes d'erreur **et** variantes de message, gardes d'autorisation, intentions de test, appels du
+client. Chaque source rate ce que les autres voient ; **c'est la jointure qui est le livrable**,
+pas les listes. Chaque extraction porte son piège mesuré : ne remplace pas une commande robuste
+par un `grep` plus court.
 
 Puis calcule les **écarts** (routes sans appelant, écrans sans appel, tables sans écrivain,
 drapeaux sans lecteur) : un écart est soit une feature manquée, soit du code mort — les deux
@@ -80,7 +84,16 @@ ressources, et cinq refus de droit).
 
 Avant de conclure, mesure le rendement de chaque source sur CE dépôt (entrées trouvées, et
 **uniques** que les autres ne voient pas). Une source sans uniques peut être abrégée la fois
-suivante ; une source qui porte beaucoup d'uniques est obligatoire.
+suivante ; une source qui porte beaucoup d'uniques est obligatoire. **Une passe qui n'apporte
+plus rien est la dernière** : mesuré sur AnhyWhere, dix passes (71,8 % → 100 %), la dixième
+n'ajoutant aucune entrée. Le gabarit exécutable vit dans `references/decouverte-features.md`.
+
+### 1e. La dimension hostile, une par entrée qui reçoit un fichier, une URL ou un nom
+
+Pour chaque entrée qui reçoit un contenu utilisateur, énumère au moins une tentative hostile et son
+résultat attendu : fichier troll, image tronquée, nom `../`, nom trop long, URL `file://`, URL vers
+`localhost` ou une adresse privée, redirection vers le réseau interne, double soumission. Sans
+cette table, la matrice couvre le chemin heureux et laisse passer ce qu'un produit craint le plus.
 
 Then fill this map:
 
